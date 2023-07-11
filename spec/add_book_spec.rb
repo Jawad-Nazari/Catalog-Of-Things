@@ -1,7 +1,7 @@
 require_relative '../book_utilities/add_book'
 require_relative '../label_utilities/add_label'
 require_relative '../book'
-require 'pry'
+
 describe AddBook do
   let(:publisher) { 'Elham' }
   let(:cover_state) { 'bad' }
