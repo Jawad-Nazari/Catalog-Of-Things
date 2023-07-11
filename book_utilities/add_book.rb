@@ -1,5 +1,3 @@
-require_relative '../requester/input_requester'
-require_relative '../validater/input_validator'
 require_relative '../book'
 require_relative '../label'
 require_relative '../label_utilities/add_label'
