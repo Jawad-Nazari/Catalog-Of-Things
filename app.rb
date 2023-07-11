@@ -53,8 +53,3 @@ class App
     puts "Thanks for using my app! I hope you enjoyed it... or at least didn't hate it.\n\n"
   end
 end
-
-def main
-  app1 = App.new
-  app1.run
-end
