@@ -1,4 +1,3 @@
-require 'pry'
 class ListLabel
   attr_accessor :labels
 
