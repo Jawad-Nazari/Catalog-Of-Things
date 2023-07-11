@@ -1,4 +1,3 @@
-require 'pry'
 class ListBook
   attr_accessor :books
 
