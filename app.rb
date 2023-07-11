@@ -56,5 +56,5 @@ end
 
 def main
   app1 = App.new
-  app1.display_menu
+  app1.run
 end
