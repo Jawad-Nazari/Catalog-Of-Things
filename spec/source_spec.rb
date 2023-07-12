@@ -1,6 +1,5 @@
-require '../source'
-require_relative 'item'
-require 'rspec'
+require_relative '../source'
+require_relative '../item'
 
 RSpec.describe Source do
   subject(:source) { Source.new('Drama') }

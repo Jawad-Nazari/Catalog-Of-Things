@@ -1,5 +1,4 @@
-require '../movie'
-require 'rspec'
+require_relative '../movie'
 
 RSpec.describe Movie do
   subject(:movie) { Movie.new(publish_date: Time.parse('2021-05-07'), silent: false, archived: false, name: 'Test') }
