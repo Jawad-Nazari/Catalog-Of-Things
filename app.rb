@@ -1,3 +1,7 @@
+require_relative 'book_utilities/list_all_books'
+require_relative 'book_utilities/add_book'
+require_relative 'label_utilities/list_all_labels'
+
 class App
   OPTIONS = {
     1 => :list_all_books,
@@ -51,5 +55,25 @@ class App
 
   def exit_app
     puts "Thanks for using my app! I hope you enjoyed it... or at least didn't hate it.\n\n"
+  end
+
+  def list_all_books
+    if File.exist?('store/books.json') && !File.empty?('store/books.json')
+      stored_book = JSON.parse(File.read('store/books.json'), symbolize_names: true)
+      books = stored_book
+    end
+    ListBook.new.list_all_books(books)
+  end
+
+  def add_book
+    AddBook.new.add_book
+  end
+
+  def list_all_labels
+    if File.exist?('store/labels.json') && !File.empty?('store/labels.json')
+      stored_label = JSON.parse(File.read('store/labels.json'), symbolize_names: true)
+      labels = stored_label
+    end
+    ListLabel.new.list_all_labels(labels)
   end
 end
