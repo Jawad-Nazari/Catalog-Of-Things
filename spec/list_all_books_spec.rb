@@ -1,4 +1,5 @@
 require_relative '../book_utilities/list_all_books'
+require_relative '../book'
 
 describe ListBook do
   let(:book) { [{ id: 219, publisher: 'Elham Basir', publish_date: '2011-09-09', cover_state: 'bad' }] }
