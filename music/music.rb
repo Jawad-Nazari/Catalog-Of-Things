@@ -47,7 +47,7 @@ class MusicAlbum < Item
   def self.add_music_album(artist, title, genre, publish_date, on_spotify)
     new_album = MusicAlbum.new(artist: artist, title: title, genre: genre, \
                                publish_date: publish_date, on_spotify: on_spotify)
-    puts "New album added with ID: #{new_album.id} \n"
+    puts "New album added with artist: #{new_album.artist} \n"
     puts ''
     new_album
   end
