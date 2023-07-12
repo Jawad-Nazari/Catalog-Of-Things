@@ -2,12 +2,20 @@ require_relative 'book_utilities/book_method_handler'
 require_relative 'label_utilities/label_method_handler'
 require_relative 'music/handle_album'
 require_relative 'music/handle_json'
+require_relative 'movies/show_movies'
+require_relative 'movies/show_sources'
+require_relative 'movies/handle_jsons'
+require_relative 'movies/add_movie'
 
 class App
   include HandleAlbum
   include JsonHandler
   include BookHandler
   include LabelHandler
+  include AddMovie
+  include ShowMovies
+  include ShowSources
+  include HandleJsons
 
   OPTIONS = {
     1 => :list_all_books,
@@ -25,6 +33,8 @@ class App
   }.freeze
 
   def run
+    load_movies_from_json
+    load_sources_from_json
     loop do
       display_menu
       option = gets.chomp.to_i
