@@ -1,12 +1,15 @@
-require './item'
+require_relative 'item'
 
 class Movie < Item
-  def initialize(publish_date, silet, archived: false)
-    super(publish_date, archived)
-    @silet = silet
+  attr_accessor :silent
+
+  def initialize(publish_date:, silent:, archived: false, name: 'unknown')
+    super(publish_date: publish_date, archived: archived, name: name)
+    @silent = silent
   end
 
   def can_be_archived?
-    super() || silet
+    super() || @silent
   end
+  private :can_be_archived?
 end
