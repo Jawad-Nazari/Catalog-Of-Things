@@ -33,7 +33,7 @@ class MusicAlbum < Item
     puts 'All Music Albums:'
     items.each do |album|
       puts "Album ID: #{album.id}, Artist Name: #{album.artist}, Title: #{album.title}, " \
-      "On Spotify: #{album.on_spotify}, Published Date: #{album.publish_date} \n"
+            "On Spotify: #{album.on_spotify}, Published Date: #{album.publish_date} \n"
       puts ''
     end
   end
