@@ -8,7 +8,7 @@ class MusicAlbum < Item
 
   # The above function is a Ruby constructor that initializes an object with
   # artist, title, genre, on_spotify, and publish_date attributes.
-  def initialize(artist:, title:, genre:, on_spotify: true, publish_date:)
+  def initialize(artist:, title:, genre:, publish_date:, on_spotify: true)
     super(publish_date)
     @artist = artist
     @title = title
@@ -32,7 +32,7 @@ class MusicAlbum < Item
   def self.list_all_music_albums(items)
     puts 'All Music Albums:'
     items.each do |album|
-      puts "Album ID: #{album.id}, Artist Name: #{album.artist}, Title: #{album.title}, "\
+      puts "Album ID: #{album.id}, Artist Name: #{album.artist}, Title: #{album.title}, " \
       "On Spotify: #{album.on_spotify}, Published Date: #{album.publish_date} \n"
       puts ''
     end
@@ -43,9 +43,9 @@ class MusicAlbum < Item
   # parameters: `artist`, `title`, `genre`,`on_spotify`, and 'publish_date`.
   # It then prints a message indicating that a new album has been added with the ID of
   # the new album. Finally, it returns the newly created album instance.
-  def self.add_music_album(artist, title, genre, on_spotify, publish_date)
-    new_album = MusicAlbum.new(artist: artist, title: title, genre: genre, on_spotify: on_spotify,\
-                               publish_date: publish_date)
+  def self.add_music_album(artist, title, genre, publish_date, on_spotify)
+    new_album = MusicAlbum.new(artist: artist, title: title, genre: genre, \
+                               publish_date: publish_date, on_spotify: on_spotify)
     puts "New album added with ID: #{new_album.id} \n"
     puts ''
     new_album

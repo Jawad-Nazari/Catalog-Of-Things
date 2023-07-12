@@ -33,7 +33,7 @@ module HandleAlbum
     publish_date = gets.chomp
     puts ''
 
-    album = MusicAlbum.add_music_album(artist, title, genre, on_spotify, publish_date)
+    album = MusicAlbum.add_music_album(artist, title, genre, publish_date, on_spotify)
     @items << album
   end
 
