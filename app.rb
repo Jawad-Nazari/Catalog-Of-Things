@@ -1,7 +1,9 @@
 require_relative 'music/handle_album'
+require_relative 'music/handle_json'
 
 class App
   include HandleAlbum
+  include JsonHandler
 
   OPTIONS = {
     1 => :list_all_books,
