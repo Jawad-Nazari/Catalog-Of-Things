@@ -1,19 +1,12 @@
 require_relative '../book_utilities/list_all_books'
-require_relative '../book_utilities/add_book'
-require_relative '../book'
 
 describe ListBook do
-  let(:publisher) { 'Elham' }
-  let(:cover_state) { 'bad' }
-  let(:publish_date) { '2019-01-01' }
-  let(:book) { Book.new(publish_date, publisher, cover_state) }
+  let(:book) { [{ id: 219, publisher: 'Elham Basir', publish_date: '2011-09-09', cover_state: 'bad' }] }
   let(:list_book) { ListBook.new }
-  let(:add_book) { AddBook.new }
 
   it '.#list_all_books should list all books' do
-    list_book.books << book
     expect do
-      list_book.list_all_books
-    end.to output("Publish date: #{publish_date}, Publisher: #{publisher}, Cover state: #{cover_state}\n").to_stdout
+      list_book.list_all_books(book)
+    end.to output("Publish date: 2011-09-09, Publisher: Elham Basir, Cover state: bad\n").to_stdout
   end
 end
