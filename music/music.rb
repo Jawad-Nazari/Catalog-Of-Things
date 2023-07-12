@@ -32,8 +32,9 @@ class MusicAlbum < Item
   def self.list_all_music_albums(items)
     puts 'All Music Albums:'
     items.each do |album|
-      puts "Album ID: #{album.id}, Artist Name: #{album.artist}, Title: #{album.title}, " \
-            "On Spotify: #{album.on_spotify}, Published Date: #{album.publish_date} \n"
+      puts "Album ID: #{album.id}, Artist Name: #{album.artist}, " \
+           "Title: #{album.title}, On Spotify: #{album.on_spotify}, " \
+           "Published Date: #{album.publish_date} \n"
       puts ''
     end
   end
