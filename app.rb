@@ -1,7 +1,9 @@
 require_relative 'music/handle_album'
+require_relative 'game_handler'
 
 class App
   include HandleAlbum
+  include GameHandler
 
   OPTIONS = {
     1 => :list_all_books,
