@@ -1,8 +1,13 @@
 require_relative 'book_utilities/list_all_books'
 require_relative 'book_utilities/add_book'
 require_relative 'label_utilities/list_all_labels'
+require_relative 'music/handle_album'
+require_relative 'music/handle_json'
 
 class App
+  include HandleAlbum
+  include JsonHandler
+
   OPTIONS = {
     1 => :list_all_books,
     2 => :list_all_music_albums,
@@ -29,7 +34,7 @@ class App
 
   def display_menu
     puts "Welcome to Catalog of Things App\n \n"
-    puts 'Choose an option by entering a number:'
+    puts "Choose an option by entering a number:\n \n"
     puts '1. List all books'
     puts '2. List all music albums'
     puts '3. List all movies'
@@ -43,6 +48,7 @@ class App
     puts '11. Add a movie'
     puts '12. Add a game'
     puts '13. Quit'
+    puts ''
   end
 
   def process_option(option)
