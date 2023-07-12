@@ -28,6 +28,19 @@ CREATE TABLE label (
   item_id INT NOT NULL
 );
 
+CREATE TABLE movie (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    published_date DATE,
+    name VARCHAR(100),
+    silent BOOLEAN,
+    FOREIGN KEY(id) REFERENCES items(id)
+);
+
+CREATE TABLE source (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  source_name VARCHAR(80)
+);
+
 ALTER TABLE book ADD FOREIGN KEY (item_id) REFERENCES item (id);
 ALTER TABLE label ADD FOREIGN KEY (item_id) REFERENCES item (id);
 ALTER TABLE label ADD FOREIGN KEY (book_id) REFERENCES book (id);
