@@ -1,12 +1,13 @@
-require_relative 'book_utilities/list_all_books'
-require_relative 'book_utilities/add_book'
-require_relative 'label_utilities/list_all_labels'
+require_relative 'book_utilities/book_method_handler'
+require_relative 'label_utilities/label_method_handler'
 require_relative 'music/handle_album'
 require_relative 'music/handle_json'
 
 class App
   include HandleAlbum
   include JsonHandler
+  include BookHandler
+  include LabelHandler
 
   OPTIONS = {
     1 => :list_all_books,
@@ -62,5 +63,4 @@ class App
   def exit_app
     puts "Thanks for using my app! I hope you enjoyed it... or at least didn't hate it.\n\n"
   end
-
 end
