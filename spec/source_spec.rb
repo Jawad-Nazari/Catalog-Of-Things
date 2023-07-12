@@ -1,22 +1,28 @@
 require_relative '../source'
 require_relative '../item'
 
-RSpec.describe Source do
-  subject(:source) { Source.new('Drama') }
+describe Source do
+  before(:each) do
+    @source = Source.new('Drama')
+  end
 
   it 'shows instance of Source class' do
-    expect(subject).to be_instance_of(Source)
+    expect(@source).to be_instance_of Source
   end
 
   it 'should return an empty array' do
-    expect(subject.items).to be_empty
+    expect(@source.items).to be == []
   end
 
-  it 'should add the item to add_item method and set the source attribute' do
-    item = Item.new(name: 'name', publish_date: '2019-1-17', archived: true)
-    source.add_item(item)
+  it 'should add the item to add_item method' do
+    item = Item.new(name: 'name', publish_date: '2015-10-10', archived: true)
+    @source.add_item(item)
+    expect(@source.items).to include(item)
+  end
 
-    expect(source.items).to include(item)
-    expect(item.source).to eql(source)
+  it 'should add the item to add_item method' do
+    item = Item.new(name: 'name', publish_date: '2019-1-17', archived: true)
+    @source.add_item(item)
+    expect(item.source).to eql @source
   end
 end
