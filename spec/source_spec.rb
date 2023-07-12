@@ -1,4 +1,4 @@
-require_relative 'source'
+require '../source'
 require_relative 'item'
 require 'rspec'
 
