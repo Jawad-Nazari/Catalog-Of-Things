@@ -17,18 +17,20 @@ class Game < Item
 
     false
   end
+
   def self.display_games(items)
     items.each do |game|
-        puts "Game title: #{game.title}\n"
-        puts ''
-        puts "Author Name: #{game.author_name} \n"
-        puts ''
-        puts "Multiplayer: #{game.multiplayer} \n"
-        puts ''
-        puts "Last played date: #{game.last_played_at}\n"
-        puts ''
+      puts "Game title: #{game.title}\n"
+      puts ''
+      puts "Author Name: #{game.author_name} \n"
+      puts ''
+      puts "Multiplayer: #{game.multiplayer} \n"
+      puts ''
+      puts "Last played date: #{game.last_played_at}\n"
+      puts ''
     end
-  end  
+  end
+
   def self.list_all_authors(items)
     items.each do |author|
       puts "Author Name: #{author.author_name} \n"

@@ -13,7 +13,7 @@ module GameHandler
   end
 
   def list_all_authors
-    puts "List of authors:"
+    puts 'List of authors:'
     Game.list_all_authors(@items)
   end
 
@@ -29,13 +29,10 @@ module GameHandler
     print "Last played date (YYYY-MM-DD): \n"
     last_played_at = Date.parse(gets.chomp)
 
-    game = Game.new(multiplayer, last_played_at, author_name, title)    
+    game = Game.new(multiplayer, last_played_at, author_name, title)
 
     @items << game
 
     puts "Game added successfully!\n"
   end
-
-  private
-
 end
