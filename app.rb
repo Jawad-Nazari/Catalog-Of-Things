@@ -1,13 +1,10 @@
 require_relative 'music/handle_album'
 require_relative 'game_handler'
-
-class App
-  include HandleAlbum
-  include GameHandler
 require_relative 'music/handle_json'
 
 class App
   include HandleAlbum
+  include GameHandler
   include JsonHandler
 
   OPTIONS = {
