@@ -12,5 +12,6 @@ class Genre
   # The add_item function adds an item to an array called items.
   def add_item(item)
     items << item
+    item.genre = self
   end
 end
