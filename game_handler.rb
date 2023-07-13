@@ -1,6 +1,6 @@
 require_relative 'game_class'
 require_relative 'author_class'
-require_relative './game_json'
+require_relative 'game_json'
 require 'date'
 
 module GameHandler
