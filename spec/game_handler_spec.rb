@@ -1,37 +1,38 @@
 require_relative '../game_handler'
 
 describe GameHandler do
-  let(:game_handler) { GameHandler.new }
-
-  it 'can list all games' do
-    mock_game = double('Game', title: 'The Legend of Zelda', author: 'Shigeru Miyamoto', multiplayer: true,
-                               last_played_at: Date.today)
-    allow(game_handler).to receive(:add_game).and_return(mock_game)
-
-    game_handler.add_game('The Legend of Zelda', 'Shigeru Miyamoto', true, Date.today)
-
-    expected_games = [mock_game]
-
-    expect(game_handler.list_all_games).to eq(expected_games)
+    let(:game_handler) { Class.new { include GameHandler }.new }
+    subject { game_handler }
+  
+    describe '#list_all_games' do
+  
+      it 'displays the list of games' do
+        expect(Game).to receive(:display_games).with(subject.instance_variable_get(:@items))
+        expect { subject.list_all_games }.to output(/List of games:/).to_stdout
+      end
+    end
+  
+    describe '#list_all_authors' do
+  
+      it 'displays the list of authors' do
+        expect(Game).to receive(:list_all_authors).with(subject.instance_variable_get(:@items))
+        expect { subject.list_all_authors }.to output(/List of authors:/).to_stdout
+      end
+    end
+  
+    describe '#add_game' do
+  
+      before do
+        allow(subject).to receive(:gets).and_return('Game Name', 'Author Name', 'true', '2023-07-13')
+        allow(Date).to receive(:parse).with('2023-07-13').and_return(Date.new(2023, 7, 13))
+      end
+  
+      it 'adds a game and saves it to JSON' do
+        expect(Game).to receive(:new).with(true, Date.new(2023, 7, 13), 'Author Name', 'Game Name')
+        expect(subject.instance_variable_get(:@items)).to receive(:<<)
+        expect(subject).to receive(:save_games_to_json)
+  
+        expect { subject.add_game }.to output(/Game added successfully!/).to_stdout
+      end
+    end
   end
-
-  it 'can add a game' do
-    mock_game = double('Game', title: 'The Legend of Zelda', author: 'Shigeru Miyamoto', multiplayer: true,
-                               last_played_at: Date.today)
-    allow(game_handler).to receive(:add_game).and_return(mock_game)
-
-    expect(game_handler.add_game).to eq(mock_game)
-  end
-
-  it 'can list all authors' do
-    mock_game = double('Game', title: 'The Legend of Zelda', author: 'Shigeru Miyamoto', multiplayer: true,
-                               last_played_at: Date.today)
-    mock_game2 = double('Game', title: 'Super Mario Bros.', author: 'Shigeru Miyamoto', multiplayer: false,
-                                last_played_at: Date.today)
-    allow(game_handler).to receive(:add_game).and_return(mock_game, mock_game2)
-
-    expected_authors = ['Shigeru Miyamoto']
-
-    expect(game_handler.list_all_authors).to eq(expected_authors)
-  end
-end
