@@ -1,10 +1,12 @@
 require_relative 'book_utilities/book_method_handler'
 require_relative 'label_utilities/label_method_handler'
 require_relative 'music/handle_album'
+require_relative 'game_handler'
 require_relative 'music/handle_json'
 
 class App
   include HandleAlbum
+  include GameHandler
   include JsonHandler
   include BookHandler
   include LabelHandler
