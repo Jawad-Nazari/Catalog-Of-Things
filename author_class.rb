@@ -1,5 +1,4 @@
 require_relative 'item'
-
 class Author < Item
   attr_accessor :first_name, :last_name
   attr_reader :id, :items
@@ -14,6 +13,6 @@ class Author < Item
 
   def add_item(item)
     @items << item
-    item.author = self
+    item.author << self
   end
 end
