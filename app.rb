@@ -34,7 +34,6 @@ class App
 
   def run
     load_movies_from_json
-    load_sources_from_json
     loop do
       display_menu
       option = gets.chomp.to_i
