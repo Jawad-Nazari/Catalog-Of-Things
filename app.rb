@@ -7,8 +7,10 @@ require_relative 'movies/show_movies'
 require_relative 'movies/show_sources'
 require_relative 'movies/handle_jsons'
 require_relative 'movies/add_movie'
+require_relative 'game_json'
 
 class App
+  include GameJsons
   include HandleAlbum
   include GameHandler
   include JsonHandler

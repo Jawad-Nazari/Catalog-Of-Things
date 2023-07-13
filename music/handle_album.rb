@@ -1,7 +1,9 @@
 require_relative 'music'
 require_relative 'genre'
+require_relative 'handle_json'
 
 module HandleAlbum
+  include JsonHandler
   # The above function initializes an empty array called @items.
   def initialize
     @items = []
@@ -35,6 +37,7 @@ module HandleAlbum
 
     album = MusicAlbum.add_music_album(artist, title, genre, publish_date, on_spotify)
     @items << album
+    save_album_to_json
   end
 
   # The function "list_all_genre" calls a method "list_all_genres" from

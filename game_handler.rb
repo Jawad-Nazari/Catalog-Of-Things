@@ -1,5 +1,6 @@
 require_relative 'game_class'
 require_relative 'author_class'
+require_relative 'game_json'
 require 'date'
 
 module GameHandler
@@ -34,5 +35,10 @@ module GameHandler
     @items << game
 
     puts "Game added successfully!\n"
+    save_games_to_json # Save the game data to JSON
+  end
+
+  def save_data
+    save_games_to_json
   end
 end
