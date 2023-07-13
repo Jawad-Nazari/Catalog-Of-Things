@@ -7,6 +7,7 @@ CREATE TABLE item (
   source VARCHAR(100),
   label VARCHAR(100),
   book_id INT,
+  album_id INT,
   FOREIGN KEY (book_id) REFERENCES book (id),
   FOREIGN KEY (album_id) REFERENCES music_album(id)
 );
@@ -50,6 +51,7 @@ CREATE TABLE music_album (
     id SERIAL PRIMARY KEY,
     artist VARCHAR(100),
     title VARCHAR(100),
+    publish_date DATE NOT NULL,
     on_spotify BOOLEAN DEFAULT FALSE,
     genre VARCHAR(100)
 );
