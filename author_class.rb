@@ -13,6 +13,6 @@ class Author < Item
 
   def add_item(item)
     @items << item
-    item.author << self
+    item.instance_variable_set(:@author, self)
   end
 end
