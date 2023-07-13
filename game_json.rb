@@ -1,17 +1,14 @@
 require 'fileutils'
 require 'json'
-require_relative 'game_handler'
 
-module HandleJsons
-# include GameHandler
-  JSON_FOLDER = 'JSON'.freeze
-  GAMES_FILE = File.join(JSON_FOLDER, 'games.json').freeze
+module GameJsons
+  GAME_JSON = 'JSON'.freeze
+  GAMES_FILE = File.join(GAME_JSON, 'games.json').freeze
 
   def save_games_to_json
-    FileUtils.mkdir_p(JSON_FOLDER)
+    FileUtils.mkdir_p(GAME_JSON)
 
     games_data = @items.map do |game|
-        puts "#{game.artist}"
       {
         'title' => game.title,
         'author_name' => game.author_name,
