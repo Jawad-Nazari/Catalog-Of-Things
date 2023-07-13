@@ -7,6 +7,8 @@ CREATE TABLE item (
   source VARCHAR(100),
   label VARCHAR(100),
   book_id INT,
+  game_id INT,
+  author_id INT,
   FOREIGN KEY (book_id) REFERENCES book (id)
 );
 
