@@ -39,6 +39,7 @@ With the Catalog of Things, users can easily add their favorite games, music alb
   </ul>
 </details>
 
+- [Presentation Video Link](https://drive.google.com/file/d/16amZJxbEzppcwN8Gajt28-ZLODYq08Im/view?usp=sharing)
 
 ### Key Features <a name="key-features"></a>
 

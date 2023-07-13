@@ -1,9 +1,7 @@
 require_relative 'music'
 require_relative 'genre'
-require_relative 'handle_json'
 
 module HandleAlbum
-  include JsonHandler
   # The above function initializes an empty array called @items.
   def initialize
     @items = []

@@ -8,7 +8,7 @@ module GameJsons
   def save_games_to_json
     FileUtils.mkdir_p(GAME_JSON)
 
-    games_data = @items.map do |game|
+    games_data = @item.map do |game|
       {
         'title' => game.title,
         'author_name' => game.author_name,
@@ -24,7 +24,7 @@ module GameJsons
   def load_games_from_json
     return unless File.exist?(GAMES_FILE)
 
-    @items = []
+    @item = []
 
     games_data = JSON.parse(File.read(GAMES_FILE))
     games_data.each do |game_data|
@@ -34,7 +34,7 @@ module GameJsons
       last_played_at = Date.parse(game_data['last_played_at'])
 
       game = Game.new(multiplayer, last_played_at, author_name, title)
-      @items << game
+      @item << game
     end
 
     puts "Games data loaded from #{GAMES_FILE}."

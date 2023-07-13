@@ -1,13 +1,13 @@
 require_relative 'book_utilities/book_method_handler'
 require_relative 'label_utilities/label_method_handler'
 require_relative 'music/handle_album'
-require_relative 'game_handler'
+require_relative 'game/game_handler'
 require_relative 'music/handle_json'
 require_relative 'movies/show_movies'
 require_relative 'movies/show_sources'
 require_relative 'movies/handle_jsons'
 require_relative 'movies/add_movie'
-require_relative 'game_json'
+require_relative 'game/game_json'
 
 class App
   include GameJsons
@@ -37,7 +37,8 @@ class App
   }.freeze
 
   def run
-    load_movies_from_json
+    load_album_from_json
+    load_games_from_json
     loop do
       display_menu
       option = gets.chomp.to_i

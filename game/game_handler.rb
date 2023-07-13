@@ -4,18 +4,19 @@ require_relative 'game_json'
 require 'date'
 
 module GameHandler
+  include GameJsons
   def initialize
-    @items = []
+    @item = []
   end
 
   def list_all_games
     puts "List of games:\n"
-    Game.display_games(@items)
+    Game.display_games(@item)
   end
 
   def list_all_authors
     puts 'List of authors:'
-    Game.list_all_authors(@items)
+    Game.list_all_authors(@item)
   end
 
   def add_game
@@ -32,13 +33,9 @@ module GameHandler
 
     game = Game.new(multiplayer, last_played_at, author_name, title)
 
-    @items << game
+    @item << game
 
     puts "Game added successfully!\n"
     save_games_to_json # Save the game data to JSON
-  end
-
-  def save_data
-    save_games_to_json
   end
 end
